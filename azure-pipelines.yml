@@ -20,11 +20,11 @@ variables:
   vmImageName: 'ubuntu-latest'
 
 stages:
-- stage: Build
-  displayName: Build and push stage
+- stage: Build and Deploy
+  displayName: push builded image and deploy 
   jobs:
-  - job: Build
-    displayName: Build
+  - job: Build and Deploy
+    displayName: Build and Deploy
     pool:
       vmImage: $(vmImageName)
     steps:
@@ -37,3 +37,5 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    
+      
